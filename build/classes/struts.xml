@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+ 
+    <package name="default" extends="struts-default" namespace="/" >
+        
+        <action name="Registration" class="registration.Registration">
+           <result name="Thankyou">Thankyou.jsp</result>
+           <result name="Unsuccessful">Unsuccessful.jsp</result>
+	    </action>
+	
+		<action name="Login" class="login.Login">
+			<result name="ERROR">Login2.jsp</result>
+			<result name="Success">Game.jsp</result>
+			<result name="login2">Login2.jsp</result>
+		</action>
+		
+		<action name="Game" class="">
+			<result name="ERROR"></result>
+		</action>
+		
+		<action name="Joingame" class="">
+			<result name="ERROR"></result>
+		</action>
+		
+		<action name="Stats" class="">
+			<result name="ERROR"></result>
+		</action>
+		
+		<action name="Logout" class="login.Login" method="logout">
+			<result name="ERROR">Logout2.jsp</result>
+			<result name="Success">Logout.jsp</result>
+		</action>
+		
+    </package>
+</struts>
