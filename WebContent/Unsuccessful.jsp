@@ -5,16 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registration Unsuccessful !</title>
-<style>
-BODY {
-background: linear-gradient(lightgray, white, lightgray);
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body id="grad1">
 <div align="center">
-<p> Oops... Could not register on PA Games.</p>
-<a href="Register.jsp">Click here to register!</a>
+<img src="./sorry2.jpg" height="200" width="300"><br/><br/><br/><br/>
+<p id="interim"> Oops... Could not register on PA Games.</p>
+<a href="Register.jsp" id="formlabel">Click here to register!</a>
 </div>
 </body>
 </html>

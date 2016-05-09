@@ -5,16 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Thank you for registering</title>
-<style>
-BODY {
-background: linear-gradient(lightgray, white, lightgray);
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
-<body>
+<body id="grad1">
 <div align="center">
-<p> Thank you for registering on PA Games.</p>
-<a href="Login.jsp">Click here to login!</a>
+<img src="./thankyou.jpg"><br/><br/><br/>
+<p class="textcolor"> Thank you for registering on PA Games.</p>
+<a href="Login.jsp" id="formlabel">Click here to login!</a>
 </div>
 </body>
 </html>

@@ -101,19 +101,21 @@ public class Login extends ActionSupport implements ModelDriven<Loginpageinfo>{
 					//System.out.println("rs.getString(3)="+rs.getString(3));
 					if(password.equals(rs.getString(3)))
 					{	
+						
+						Map session = ActionContext.getContext().getSession();
+						if(!session.containsKey("email")) {
+							session.put("email",emailid);
+							session.put("context", new Date());
+						}
+						
 						//System.out.println("reached ="+ rs.getInt(5));
 						if(rs.getString(5).equals("0"))
 						{	
-							Map session = ActionContext.getContext().getSession();
-							session.put("email",emailid);
-							session.put("context", new Date());
 							st = con.prepareStatement("UPDATE player SET LoggedIn = 1 where Email = ?");
 							st.setString(1, emailid);
 							st.executeUpdate();
 							st.close();
 							result = "Success";
-							//session.setAttribute("userid", rowCount);
-							//session.setAttribute("userName",rs.getString(5));
 						}
 						else {
 							result = "Success";
@@ -147,7 +149,7 @@ public class Login extends ActionSupport implements ModelDriven<Loginpageinfo>{
 		Map session = ActionContext.getContext().getSession();
 		//System.out.println("global_email in logout="+global_email);
 		String emailid=(String)session.get("email");
-		System.out.println("emailid in logout="+emailid);
+		//System.out.println("emailid in logout="+emailid);
 
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection(DB_URL,USER,PASS);

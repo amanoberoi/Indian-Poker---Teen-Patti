@@ -1,0 +1,35 @@
+#grad1 {
+    		height: 200px;
+    		background: red;    
+    		background: -webkit-linear-gradient(left, black , 			    darkred,black); 
+  
+    		background: -o-linear-gradient(right, black, darkred,black); 
+    
+    		background: -moz-linear-gradient(right, black, darkred, 				black); 
+     
+    		background: linear-gradient(to right, black , darkred, 		black);
+	}
+
+#interim{
+		
+    		color: gainsboro;
+    		font-size: 15pt;
+	}
+
+#main	{
+		color: gainsboro;
+    		font-size: 30pt;
+
+		
+	}
+	
+#formlabel	{
+				color:yellow;
+				font-size:15pt;
+			}
+
+.textcolor {
+	color:white;
+}
+
+ 

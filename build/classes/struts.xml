@@ -3,7 +3,7 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
- 
+ <constant name="struts.mapper.action.prefix.enabled" value="true"/>
     <package name="default" extends="struts-default" namespace="/" >
         
         <action name="Registration" class="registration.Registration">
@@ -17,16 +17,34 @@
 			<result name="login2">Login2.jsp</result>
 		</action>
 		
-		<action name="Game" class="">
-			<result name="ERROR"></result>
+		<action name="Game" class="gameSetup.Setup"><!--class="game.Game">-->
+			<result name="ERROR">Game.jsp</result>
+			<result name="wait">Wait.jsp</result>
+			<result name="success">TeenPatti.jsp</result>
+			<result name="show" type="redirectAction">
+        	<param name="actionName">Show</param>
+			</result>
 		</action>
 		
-		<action name="Joingame" class="">
-			<result name="ERROR"></result>
+		<action name="Pack" class="game.Pack">
+			<!-- <result name="ERROR">Logout2.jsp</result> -->
+			<result name="success">Thankyou2.jsp</result>
 		</action>
 		
-		<action name="Stats" class="">
-			<result name="ERROR"></result>
+		<action name="Show" class="game.Show">
+			<!-- <result name="ERROR">Logout2.jsp</result> -->
+			<result name="success">GameResult.jsp</result>
+			<result name="input">TeenPatti.jsp</result>
+		</action>
+		
+		<action name="Stats" class="game.Stats">
+			<result name="input">Logout2.jsp</result>
+			<result name="success">Stats.jsp</result>
+		</action>
+		
+		<action name="Chaal" class="game.Chaal">
+			<result name="input">TeenPatti.jsp</result>
+			<result name="success">TeenPatti.jsp</result>
 		</action>
 		
 		<action name="Logout" class="login.Login" method="logout">

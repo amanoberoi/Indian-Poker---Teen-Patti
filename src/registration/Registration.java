@@ -41,7 +41,7 @@ public class Registration extends ActionSupport implements ModelDriven<PlayerInf
 	static final String PASS = "amanO1992!";
 
 	@Override
-	public String execute() throws SQLException {
+	public String execute() throws SQLException, ClassNotFoundException {
 		
 		String result="ERROR";
 		try {
@@ -53,7 +53,7 @@ public class Registration extends ActionSupport implements ModelDriven<PlayerInf
 		return result;
 	}
 
-	public String storeData(PlayerInfo player) throws SQLException, NoSuchAlgorithmException, InvalidKeySpecException{
+	public String storeData(PlayerInfo player) throws SQLException, NoSuchAlgorithmException, InvalidKeySpecException, ClassNotFoundException{
 
 		String name=player.getName();
 		String emailid=player.getEmailid();
@@ -87,16 +87,17 @@ public class Registration extends ActionSupport implements ModelDriven<PlayerInf
 	    byte[] hashedPassword = key.generateSecret(spec).getEncoded();
 	    
 	    pwd =  String.format("%x", new BigInteger(hashedPassword));
-		Connection conn = null;
+	    //STEP 2: Register JDBC driver
+		Class.forName("com.mysql.jdbc.Driver");
+	    Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);;
 		PreparedStatement prepStmt = null;
 		ResultSet rs = null;
+		int rowCount=0;
 		try{
-			//STEP 2: Register JDBC driver
-			Class.forName("com.mysql.jdbc.Driver");
+			
 
 			//STEP 3: Open a connection
-			System.out.println("Connecting to database...");
-			conn = DriverManager.getConnection(DB_URL,USER,PASS);
+			//System.out.println("Connecting to database...");
 			
 			if(emailid!=null)
 		    {
@@ -104,9 +105,14 @@ public class Registration extends ActionSupport implements ModelDriven<PlayerInf
 				prepStmt.setString(1, emailid);
 				rs = prepStmt.executeQuery();
 		    }
-		    rs.next();
-		    int rowCount = rs.getInt(1);
-		    
+			if(rs!=null) {
+				if(rs.next()) {
+					rowCount = rs.getInt(1);
+				}
+				else {
+					rowCount =0;
+				}
+			}
 		    if(rowCount>0)
 		    {
 		            return "Unsuccessful";  
@@ -114,7 +120,7 @@ public class Registration extends ActionSupport implements ModelDriven<PlayerInf
 		
 
 			//STEP 4: Execute a query
-			System.out.println("Creating statement...");
+			//System.out.println("Creating statement...");
 			String sql;
 			sql = "Insert into player(Name, Email, Contact, Password, Salt, LoggedIn) values (?,?,?,?,?,?)";
 			prepStmt = conn.prepareStatement(sql);
@@ -134,11 +140,7 @@ public class Registration extends ActionSupport implements ModelDriven<PlayerInf
 				conn.close();
 			}
 		}
-		catch(ClassNotFoundException ex) {
-			System.out.println("Error: unable to load driver class!");
-			ex.printStackTrace();
-			System.exit(1);
-		}
+		
 		catch(SQLException exxx){
 			System.out.println("Error:SQLEXCEPTION");
 			exxx.printStackTrace();

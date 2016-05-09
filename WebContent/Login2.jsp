@@ -5,17 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-<div align="center"><p>PA Games Inc.</p></div><br/>
+<body id="grad1">
+<div align="center"><p id="main">PA Games Inc.</p></div><br/>
 <div align="center">
-<h1 style="color: RED"><b> INCORRECT USERNAME OR PASSWORD!!</b></h1>
+<img src="./cover.png" height="200" width="200"><br/><br/><br/>
+<h1 style="font-size: 18pt;color: red;"><b> INCORRECT USERNAME OR PASSWORD!!</b></h1>
 <form name="login" action="Login" method="post">
-<label>Email:</label><input type="text" name="emailid"/><br/>
-<label>Password:</label><input type="password" name="pwd"/><br/>
-<input type="submit" value="Login"/><br/>
-<input type="reset" value="Clear"/><br/>
-<a href="Register.jsp">Click here to register!</a><br/>
+<label id="interim">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="emailid"/><br/>
+<label id="interim">Password: </label><input type="password" name="pwd"/><br/><br/><br/>
+<input type="submit" value="Login"/>
+<input type="reset" value="Clear"/><br/><br/>
+<a href="Register.jsp" id="formlabel">Click here to register!</a><br/>
 </form>
 </div>
 </body>

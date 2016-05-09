@@ -6,11 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registration</title>
-<style>
-BODY {
-background: linear-gradient(lightgray, white, lightgray);
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 <script>
 
 	function validateForm() {
@@ -68,31 +64,31 @@ background: linear-gradient(lightgray, white, lightgray);
 </script>
 
 </head>
-<body>
+<body id="grad1">
 <div align="center">
 
  <form name="register" action="Registration"  onsubmit="return validateForm()" method="post" >
  <br></br>
  <table>
-<tr><td><h1 style="font-size: 150%;" align="center">Registration Form</h1><br/></td></tr>
-<tr><td><label>*Full Name</label></td>
+<tr><td><h1 style="font-size: 30pt; color:gainsboro">Registration Form</h1><br/></td></tr>
+<tr><td><label id="interim">*Full Name</label></td>
 	<td><input name="name" type="text" maxlength="20" id="name"/></td></tr>
-<tr><td><label>*Email Id:</label></td>
+<tr><td><label id="interim">*Email Id:</label></td>
 	<td><input name="emailid" type="text" maxlength="25" id="emailid"/></td></tr>
-<tr><td><label>*Contact Number:</label></td>
+<tr><td><label id="interim">*Contact Number:</label></td>
 	<td><input name="phone" type="text" maxlength="17" id="phone" /></td></tr>
-<tr><td><label>*Password:</label></td>
+<tr><td><label id="interim">*Password:</label></td>
 	<td><input name="pwd" type="password" maxlength="15" id="pwd"/></td></tr>
-<tr><td><label>*Confirm Password :</label></td>
+<tr><td><label id="interim">*Confirm Password :</label></td>
 <td><input name="cpwd" type="password" maxlength="15" id="cpwd" /></td></tr>
 <tr><td align="center"><br/><input name="" type="submit" value="Register" />
 	<td align="center"><br/><input name="" type="reset" value="Reset" /></td></tr>
 	
-	<tr><td><p>Already registered?</p><a href="Login.jsp">Click here to Login.</a></td></tr>
+	<tr><td><p id="interim">Already registered?</p><a href="Login.jsp" id="formlabel">Click here to Login.</a></td></tr>
          
-         <tr><td colspan="2" ><br/><br/><label> Fields indicated by asterisk(*) are mandatory</label><br/><br/></td></tr>
-         
-         <tr> <td colspan="2" >Password Rules:<br/>
+         <tr><td colspan="2" ><br/><br/><label id="interim"> Fields indicated by asterisk(*) are mandatory</label><br/><br/></td></tr>
+       
+         <tr> <td colspan="2" style="color:yellow">Password Rules:<br/>
                  a) Should have at least two upper case letters
              <br></br>
                  b) Should have at least one special character(!%$) and have two digits
